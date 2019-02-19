@@ -1,0 +1,7 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/MechanicalRock/gcp-demo']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/gcp-demo/aspnetapp', '.']
+  dir: 'aspnetapp'
+images: ['gcr.io/my-project/image1', 'gcr.io/my-project/image2']
