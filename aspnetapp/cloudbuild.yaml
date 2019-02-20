@@ -1,7 +1,4 @@
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/MechanicalRock/gcp-demo']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/central-oath-228105/aspnetapp', '.']
-  dir: 'gcp-demo/aspnetapp'
 images: ['gcr.io/central-oath-228105/aspnetapp']

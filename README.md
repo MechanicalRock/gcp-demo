@@ -1,8 +1,17 @@
 # gcp-demo
 Quickstart for deploying application and CI/CD in GCP
 
-https://cloud.google.com/sdk/docs/quickstart-macos
+* [Setting up your gcp cloud sdk](https://cloud.google.com/sdk/docs/quickstart-macos)
 
-gcloud container clusters get-credentials test-random-cluster-py --zone australia-southeast1-a --project central-oath-228105
+## Authenticate to GCP
 
-gcloud builds submit --config cloudbuild.yaml .
+```console
+gcloud auth login
+``` 
+
+## Setting current project context
+
+```console
+gcloud config set project PROJECT_ID
+```
+

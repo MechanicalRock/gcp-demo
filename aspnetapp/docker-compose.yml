@@ -7,10 +7,10 @@ services:
     image: 'aspnetcoreapp'
     build:
       context: .
-    volumes:
-      - .:/var/www/aspnetcoreapp
+    # volumes:
+    #   - .:/var/www/aspnetcoreapp
     ports:
-     - "5000:5000"
+     - "5000:80"
     depends_on:
      - "postgres"
     networks:
@@ -23,8 +23,8 @@ services:
       POSTGRES_PASSWORD: password
     ports:
      - "5432:5432"
-    # networks:
-    #   - aspnetcoreapp-network
+    networks:
+      - aspnetcoreapp-network
 
 networks:
   aspnetcoreapp-network:
