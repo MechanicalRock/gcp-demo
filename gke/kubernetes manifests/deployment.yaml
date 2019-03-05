@@ -42,7 +42,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: gcp-demo-svc
               servicePort: gcp-http-port
