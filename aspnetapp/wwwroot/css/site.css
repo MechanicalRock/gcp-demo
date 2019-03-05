@@ -1,37 +1,48 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/***************
+ Variables
+***************/
+:root {
+    --color-brand: #40BFB4;
+    --color-grey-dark: #231F20;
+    --color-grey-mid: #333132;
+    --color-grey-light: #E8E5E2;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+/***************
+ Normalize
+***************/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+/***************
+ Base
+***************/
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: var(--color-grey-dark);
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+section {
+    height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+/***************
+ Typography
+***************/
+h1 { font-weight: bold; font-size: 2rem; }
+.mono { font-family: 'Roboto Mono', monospace; }
+
+/***************
+ Sections
+***************/
+.header {
+    background-color: var(--color-brand);
+    color: white;
 }
