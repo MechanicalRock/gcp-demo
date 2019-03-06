@@ -13,33 +13,14 @@
 	}
 
 /* Container */
-
-	body {
-		min-width: 1200px;
-	}
-
 	.container {
-		width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	/* Modifiers */
-	
-		.container.small {
-			width: 900px;
-		}
-
-		.container.big {
-			width: 100%;
-			max-width: 1500px;
-			min-width: 1200px;
-		}
-
 /* Grid */
 
 	/* Cells */
-
 		.\31 2u { width: 100% }
 		.\31 1u { width: 91.6666666667% }
 		.\31 0u { width: 83.3333333333% }

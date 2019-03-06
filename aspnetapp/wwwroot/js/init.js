@@ -4,7 +4,7 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
-skel.init({
+skel.init( {
 	prefix: 'css/style',
 	resetCSS: true,
 	boxModel: 'border',
@@ -13,7 +13,7 @@ skel.init({
 	},
 	breakpoints: {
 		'mobile': {
-			range: '-480',
+			range: '-532',
 			lockViewport: true,
 			containers: 'fluid',
 			grid: {
@@ -23,35 +23,33 @@ skel.init({
 		},
 		'desktop': {
 			range: '481-',
-			containers: 1200
 		},
 		'1000px': {
 			range: '481-1200',
-			containers: 960
 		}
 	}
 }, {
-	panels: {
 		panels: {
-			navPanel: {
-				breakpoints: 'mobile',
-				position: 'left',
-				style: 'reveal',
-				size: '80%',
-				html: '<div data-action="navList" data-args="nav"></div>'
-			}
-		},
-		overlays: {
-			titleBar: {
-				breakpoints: 'mobile',
-				position: 'top-left',
-				height: 44,
-				width: '100%',
-				html: '<span class="toggle" data-action="togglePanel" data-args="navPanel"></span>' +
- '<span class="title" data-action="copyHTML" data-args="logo"></span>'
+			panels: {
+				navPanel: {
+					breakpoints: 'mobile',
+					position: 'left',
+					style: 'reveal',
+					size: '80%',
+					html: '<div data-action="navList" data-args="nav"></div>'
+				}
+			},
+			overlays: {
+				titleBar: {
+					breakpoints: 'mobile',
+					position: 'top-left',
+					height: 44,
+					width: '100%',
+					html: '<span class="toggle" data-action="togglePanel" data-args="navPanel"></span>' +
+						'<span class="title" data-action="copyHTML" data-args="logo"></span>'
+				}
 			}
 		}
-	}
-	
-	
-});
+
+
+	} );

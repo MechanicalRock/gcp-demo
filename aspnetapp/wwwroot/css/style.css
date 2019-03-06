@@ -18,13 +18,26 @@
 }
 
 /*********************************************************************************/
+/* Variables                                                                     */
+/*********************************************************************************/
+:root {
+  --color-brand: #00c2b4;
+  --color-brand-dark: #008e84;
+}
+
+/*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
+
+* {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   padding: 0;
   background: #161616;
+  min-width: 100%;
 }
 
 body,
@@ -75,7 +88,7 @@ i {
 
 a {
   text-decoration: none;
-  color: #80ba8e;
+  color: var(--color-brand);
 }
 
 a:hover {
@@ -119,9 +132,6 @@ header {
   margin-bottom: 1.6em;
 }
 
-header h2 {
-}
-
 header .byline {
   display: block;
   margin: 1.5em 0 0 0;
@@ -162,8 +172,46 @@ article:last-child {
   margin-bottom: 0;
 }
 
-/* Images */
+.my-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: stretch;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
 
+.my-row > * {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: calc(33% - 2em);
+  margin: 0 1em;
+  height: 100%;
+  justify-content: stretch;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 0.4em;
+  min-width: 18em;
+  margin-bottom: 2em;
+}
+
+@media screen and (max-width: 532px) {
+  .my-row {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .my-row > * {
+    width: 100%;
+    margin-bottom: 0 !important;
+  }
+}
+
+
+
+/* Images */
 .image {
   display: inline-block;
 }
@@ -220,9 +268,6 @@ ul.default li:first-child {
   border-top: none;
 }
 
-ul.default {
-}
-
 ul.style li {
   margin: 0;
   padding: 2em 0em 1.5em 0em;
@@ -257,17 +302,23 @@ ul.style .first {
   border-top: none;
 }
 
-/* Buttons */
+/* Containers */
+.container {
+  width: 100%;
+  padding: 0 1em;
+}
 
+/* Buttons */
 .button {
   position: relative;
   display: inline-block;
-  background: #80ba8e;
+  background: var(--color-brand);
   padding: 0.8em 2em;
   text-decoration: none !important;
   font-size: 1.2em;
   font-weight: 300;
   color: #fff !important;
+  text-transform: uppercase;
   -moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
   -webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
   -o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
@@ -278,7 +329,7 @@ ul.style .first {
 }
 
 .button:hover {
-  background: #70aa7e;
+  background: var(--color-brand-dark);
   color: #fff !important;
 }
 
@@ -1699,16 +1750,8 @@ ul.contact li a:hover {
 /* Logo                                                                          */
 /*********************************************************************************/
 
-#logo {
-  position: relative;
-  z-index: 1;
-}
-
-#logo h1 {
+h1 {
   color: #fff;
-}
-
-#logo a {
   display: block;
   text-decoration: none;
   font-weight: 300;
@@ -1717,9 +1760,16 @@ ul.contact li a:hover {
   color: #fff;
   letter-spacing: -0.05em;
   margin: 0 0 0.125em 0;
+  transition: font-size 0.6s ease;
 }
 
-#logo span {
+@media screen and (max-width: 531px) {
+  h1 {
+    font-size: 4em;
+  }
+}
+
+.company-label {
   font-size: 1.4em;
   color: #fff;
 }
@@ -1728,36 +1778,48 @@ ul.contact li a:hover {
 /* Nav                                                                           */
 /*********************************************************************************/
 
-#nav {
-}
-
-#nav-wrapper {
-  background: rgba(0, 0, 0, 0.1);
+nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
 
-#nav > ul {
+nav > ul {
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-#nav > ul > li {
+nav > ul > li {
   display: inline-block;
-  border-right: 1px solid;
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
-#nav > ul > li:last-child {
+nav > ul > li::after {
+  content: '';
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav > ul > li:last-child::after {
+  border-right: 0;
+}
+
+nav > ul > li:last-child {
   padding-right: 0;
   border-right: none;
 }
 
-#nav > ul > li > a,
-#nav > ul > li > span {
+nav > ul > li > a {
+  background-color: #1b1b1b;
+}
+
+nav > ul > li > a:hover,
+nav > ul > li > a:focus {
+  background-color: var(--color-brand);
+  text-decoration: none;
+}
+
+nav > ul > li > a {
   display: inline-block;
   padding: 1.5em 1.5em;
   letter-spacing: 0.06em;
@@ -1766,13 +1828,32 @@ ul.contact li a:hover {
   font-size: 1.1em;
   outline: 0;
   color: #fff;
+  transition: padding 0.2s ease, background-color 0.2s ease;
 }
 
-#nav li.active a {
+@media screen and (max-width: 656px) {
+  nav > ul > li > a {
+    padding: 1em;
+  }
+}
+
+@media screen and (max-width: 594px) {
+  nav > ul > li > a {
+    padding: 0.5em;
+  }
+}
+
+@media screen and (max-width: 532px) {
+  #header {
+    padding-top: 1em !important;
+  }
+}
+
+nav li.active a {
   color: #fff;
 }
 
-#nav > ul > li > ul {
+nav > ul > li > ul {
   display: none;
 }
 
@@ -1782,7 +1863,13 @@ ul.contact li a:hover {
 
 #main {
   position: relative;
-  background: #fff;
+  background-color: black;
+}
+
+#main iframe {
+  width: 100%;
+  height: auto;
+  min-height: 40em;
 }
 
 .homepage #content {
@@ -1853,10 +1940,20 @@ ul.contact li a:hover {
 
 #featured .pennant {
   font-size: 4em;
+  padding-top: 0.2em;
+}
+
+#featured .pennant img {
+  height: 100px;
+  width: auto;
 }
 
 #featured .button {
   margin-top: 1.5em;
+}
+
+#featured .container p {
+  padding: 0 3em;
 }
 
 /*********************************************************************************/
