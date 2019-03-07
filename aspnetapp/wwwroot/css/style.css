@@ -175,7 +175,7 @@ article:last-child {
 .my-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-content: center;
   align-items: stretch;
   flex-grow: 1;
@@ -195,6 +195,11 @@ article:last-child {
   border-radius: 0.4em;
   min-width: 18em;
   margin-bottom: 2em;
+  max-width: 22em;
+}
+
+.my-row > * > ul {
+  padding: 0 1em;
 }
 
 @media screen and (max-width: 532px) {
