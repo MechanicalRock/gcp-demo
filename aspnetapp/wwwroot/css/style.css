@@ -115,7 +115,7 @@ sup {
 hr {
   border: 0;
   border-top: solid 1px #ddd;
-  margin: 6em 0 0 0;
+  margin: 2em 0 0 0;
   padding: 6em 0 0 0;
 }
 
@@ -214,20 +214,6 @@ article:last-child {
   margin-bottom: 1em;
   margin-top: 0.5em;
   color: var(--color-brand);
-}
-
-@media screen and (max-width: 532px) {
-  .my-row {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center
-  }
-
-  .my-row > * {
-    width: 100%;
-    margin-bottom: 0 !important;
-  }
 }
 
 .love-wrapper {
@@ -1767,6 +1753,7 @@ ul.contact li a:hover {
   background-color: rgba(64, 64, 64, 0.125);
   height: 100vh;
   padding: 0;
+  min-height: 24em;
 }
 
 #header .dark-filter {
@@ -1910,6 +1897,10 @@ nav > ul > li > a {
   #header {
     padding-top: 1em !important;
   }
+
+  h1 {
+    top: 0.2em;
+  }
 }
 
 nav li.active a {
@@ -1951,7 +1942,9 @@ nav > ul > li > ul {
 #footer {
   position: relative;
   text-align: center;
+  background-color: #1f191a;
   padding-top: 4em;
+  padding-bottom: 1em;
 }
 
 #footer header h2 {
@@ -2046,12 +2039,6 @@ nav > ul > li > ul {
   background: rgba(64, 64, 64, 0.5);
 }
 
-#tweet section {
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
 #tweet blockquote {
   position: relative;
   border: none;
@@ -2060,18 +2047,94 @@ nav > ul > li > ul {
   color: rgba(255, 255, 255, 0.6);
 }
 
-#tweet h1 {
-  position: relative;
-  border: none;
-  margin: 0px;
-  padding-bottom: 30px;
-  font-size: 2em;
-  font-weight: 300;
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.6);
+#tweet .fa-quote-left {
+  display: inline-block;
+  height: 1.1em;
+  margin-right: 0;
+  color: var(--color-brand);
 }
 
 .mechrocklogo {
   width: 50px !important;
   height: 50px !important;
+}
+
+.data-flow-wrapper {
+  margin: 0 -1em;
+  padding: 4em;
+}
+
+.bal0 {
+  fill: none;
+  stroke: #808080;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.bal1 {
+  fill: #FFFFFF;
+  stroke: var(--color-brand);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.bal2 {
+  fill: none;
+  stroke: #808080;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.bal3 {
+  fill: none;
+  stroke: #808080;
+  stroke-miterlimit: 10;
+}
+
+.bal4 {
+  fill: none;
+  stroke: var(--color-brand);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.bal5 {
+  fill: var(--color-brand);
+}
+
+@media screen and (max-width: 532px) {
+  .my-row {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center
+  }
+
+  .my-row > * {
+    width: 100%;
+    margin-bottom: 0 !important;
+  }
+
+  .data-flow-wrapper {
+    padding: 1em;
+  }
+
+  hr {
+    margin: 2em 0 0 0;
+    padding: 3em 0 0 0;
+  }
+
+  #footer {
+    padding-top: 2em;
+  }
+
+  #footer ul.contact {
+    padding-bottom: 2em;
+  }
 }

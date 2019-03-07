@@ -42,6 +42,10 @@ spec:
   rules:
     - http:
         paths:
+          - path: /cluster
+            backend:
+              serviceName: my-release-kube-ops-view
+              servicePort: 80
           - path: /*
             backend:
               serviceName: gcp-demo-svc
