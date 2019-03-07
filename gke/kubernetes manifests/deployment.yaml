@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: aspnetapp
-          image: gcr.io/central-oath-228105/aspnetapp
+          image: gcr.io/central-oath-228105/aspnetapp:latest
           ports:
             - containerPort: 8080
 ---

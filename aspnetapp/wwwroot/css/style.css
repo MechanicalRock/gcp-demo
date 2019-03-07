@@ -23,6 +23,7 @@
 :root {
   --color-brand: #00c2b4;
   --color-brand-dark: #008e84;
+  --color-brand-red: #ff414d;
 }
 
 /*********************************************************************************/
@@ -227,7 +228,7 @@ article:last-child {
 }
 
 .love-wrapper .fa-heart {
-  color: #f95454;
+  color: var(--color-brand-red);
 }
 
 /* Images */
@@ -2108,6 +2109,93 @@ nav > ul > li > ul {
   fill: var(--color-brand);
 }
 
+.enquiry-form {
+  border-radius: 0.3em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  max-width: 32em;
+  padding: 1em;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.enquiry-form.-collapse {
+  transition: max-height 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), padding 0.5s ease;
+  max-height: 0;
+  padding: 0;
+}
+
+.enquiry-form.-posting input,
+.enquiry-form.-posting textarea,
+.submit-btn[disabled] {
+  opacity: 0.7;
+}
+
+.enquiry-form .form-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+  min-width: 16em;
+  border: 0;
+  border-radius: 0.2em;
+  padding: 0.5em;
+  width: 100%;
+  max-width: 24em;
+}
+
+.enquiry-form textarea {
+  height: 8em;
+}
+
+.enquiry-form .button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+}
+
+.enquiry-form button {
+  background-color: var(--color-brand);
+  padding: 1em 2em;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 0.2em;
+  cursor: pointer;
+  transition: background-color 0.3s linear;
+}
+
+.enquiry-form button.-error {
+  background-color: var(--color-brand-red);
+}
+
+.enquiry-form button .fa {
+  font-size: 1.2em;
+  margin-left: 0.4em;
+  margin-right: -0.6em;
+  transform: rotate(0deg);
+  display: inline-block;
+}
+
+.enquiry-form button .fa.fa-spinner {
+  transition: transform 1s ease;
+  transform: rotate(360deg);
+}
+
+.enquiry-form button .fa.fa-thumbs-down {
+  transition: transform 1s ease;
+}
+
+.enquiry-form button:hover,
+.enquiry-form button:active {
+  background-color: var(--color-brand-dark);
+}
+
 @media screen and (max-width: 532px) {
   .my-row {
     flex-direction: column;
@@ -2136,5 +2224,10 @@ nav > ul > li > ul {
 
   #footer ul.contact {
     padding-bottom: 2em;
+  }
+
+  .enquiry-form input,
+  .enquiry-form textarea {
+    width: auto;
   }
 }

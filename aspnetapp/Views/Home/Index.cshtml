@@ -275,7 +275,7 @@
 				<ul>
 					<li>Private Global Fiber Network</li>
 					<li>Scalable</li>
-					<li>Infrastructure As Code</li>
+					<li>Infrastructure as Code</li>
 					<li>Automatic Deployment</li>
 					<li>Improved Performance</li>
 					<li>Fault Tolerant<br /><br /></li>
@@ -289,11 +289,11 @@
 				<div class="heading">Why Mechanical Rock?</div>
 				<ul>
 					<li>Trusted Partner</li>
-					<li>Proven Migration Patterns</li>
+					<li>Proven migration patterns</li>
 					<li>Skills and knowledge transfer</li>
-					<li>Cost Efficient</li>
-					<li>Faster Delivery Cycles</li>
-					<li>Following Industries Best Practices<br /><br /></li>
+					<li>Cost efficient</li>
+					<li>Faster delivery cycles</li>
+					<li>Following industry good practice<br /><br /></li>
 				</ul>
 				<a href="https://www.mechanicalrock.io/" target="_blank" class="button button-style1">Read More</a>
 			</section>
@@ -309,7 +309,7 @@
 					<li>Auto scaling</li>
 					<li>Auto upgrades for nodes' software</li>
 					<li>Auto-repair to maintain availability</li>
-					<li>Logging and Monitoring for visibility</li>
+					<li>Logging and monitoring for visibility</li>
 				</ul>
 				<a href="https://cloud.google.com/kubernetes-engine/" class="button button-style1">Read More</a>
 			</section>
@@ -350,6 +350,24 @@
 			<span class="byline"><a href="mailto:contact@mechanicalrock.io">contact@mechanicalrock.io</a></span>
 		</header>
 
+		<div class="enquiry-form">
+			<div class="form-row">
+				<label for="email">Email</label>
+				<input type="email" name="email" placeholder="your@email.com">
+			</div>
+
+			<div class="form-row">
+				<label for="message">Message</label>
+				<textarea type="text" name="message"></textarea>
+			</div>
+
+			<div class="button-wrapper">
+				<button class="submit-btn" onClick="submitEnquiry()">
+					Send <span class="fa fa-thumbs-up"></span>
+				</button>
+			</div>
+		</div>
+
 		<div class="love-wrapper">
 			<span>Built with </span>
 			<span class="fa fa-heart"> </span>
@@ -375,3 +393,61 @@
 			©2018 Google LLC All rights reserved. Google and the Google logo are registered trademarks of Google LLC.</p>
 	</div>
 </footer>
+
+<script type="text/javascript">
+	function submitEnquiry() {
+		const enquiryForm = document.querySelector( '.enquiry-form' );
+
+		if ( enquiryForm ) {
+			const email = enquiryForm.querySelector( '[name=email]' );
+			const message = enquiryForm.querySelector( '[name=message]' );
+
+			if ( email && message ) {
+				const emailVal = email.value.trim();
+				const messageVal = message.value.trim();
+				const submitButton = document.querySelector( '.submit-btn' )
+
+				if ( emailVal.length > 0 && messageVal.length > 0 ) {
+					const submitIcon = submitButton.querySelector( '.fa' );
+					submitIcon.classList.remove( 'fa-thumbs-up' );
+					submitIcon.classList.add( 'fa-spinner' );
+					enquiryForm.classList.add( '-posting' );
+					submitButton.disabled = true;
+
+					const resetUI = () => {
+						submitIcon.classList.remove( 'fa-spinner' );
+						submitIcon.classList.add( 'fa-thumbs-up' );
+						enquiryForm.classList.remove( '-posting' );
+						submitButton.disabled = false;
+					}
+
+					const headers = new Headers();
+					// headers.append( "Accept", "application/json" );
+					headers.append( "content-type", "application/x-www-form-urlencoded" );
+					headers.append( "X-Content-Type-Options", "nosniff" );
+
+					const formBody = new FormData();
+					formBody.append( 'email', emailVal );
+					formBody.append( 'message', messageVal );
+
+					fetch( 'https://asia-northeast1-central-oath-228105.cloudfunctions.net/http', {
+						method: 'POST',
+						body: `email=${emailVal}&message=${messageVal}`,
+						mode: "no-cors",
+						cache: "no-cache",
+						headers
+					} ).then( ( response ) => {
+					} ).then( ( data ) => {
+						resetUI();
+						enquiryForm.classList.add( '-collapse' );
+					} ).catch( ( reason ) => {
+						resetUI();
+						submitIcon.classList.remove( 'fa-thumbs-up' );
+						submitIcon.classList.add( 'fa-thumbs-down' );
+						submitButton.classList.add( '-error' );
+					} );
+				}
+			}
+		}
+	}
+</script>
