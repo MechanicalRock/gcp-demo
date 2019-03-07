@@ -33,6 +33,11 @@
   scroll-behavior: smooth;
 }
 
+*::selection {
+  color: var(--color-brand);
+  background-color: grey;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -44,7 +49,7 @@ body,
 input,
 textarea,
 select {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 11pt;
   font-weight: 300;
   line-height: 1.75em;
@@ -200,12 +205,23 @@ article:last-child {
 
 .my-row > * > ul {
   padding: 0 1em;
+  font-size: 0.9em;
+}
+
+.heading {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+  color: var(--color-brand);
 }
 
 @media screen and (max-width: 532px) {
   .my-row {
     flex-direction: column;
     flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center
   }
 
   .my-row > * {
@@ -214,7 +230,19 @@ article:last-child {
   }
 }
 
+.love-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.love-wrapper > span {
+  padding-right: 0.5em;
+}
+
+.love-wrapper .fa-heart {
+  color: #f95454;
+}
 
 /* Images */
 .image {
@@ -1735,7 +1763,7 @@ ul.contact li a:hover {
 
 #header {
   position: relative;
-  background: url(../images/header.jpg) no-repeat bottom center;
+  /* background: url(../images/header.jpg) no-repeat bottom center; */
   background-attachment: fixed;
   background-size: cover;
   text-align: center;
@@ -1774,9 +1802,14 @@ h1 {
   }
 }
 
+h1, h2, h3, h4, h5 h6 {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
 .company-label {
   font-size: 1.4em;
   color: #fff;
+  font-style: italic;
 }
 
 /*********************************************************************************/
@@ -1801,7 +1834,7 @@ nav > ul > li {
 }
 
 nav > ul > li::after {
-  content: '';
+  content: "";
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1896,6 +1929,7 @@ nav > ul > li > ul {
 #footer {
   position: relative;
   text-align: center;
+  padding-top: 4em;
 }
 
 #footer header h2 {
@@ -1904,6 +1938,13 @@ nav > ul > li > ul {
 
 #footer header .byline {
   color: rgba(255, 255, 255, 0.2);
+}
+
+#footer .legal-text {
+  margin: 1em 0 0 0;
+  font-size: 0.8em;
+  border-top: 1px solid #373737;
+  padding-top: 1em;
 }
 
 /*********************************************************************************/
@@ -1968,7 +2009,7 @@ nav > ul > li > ul {
 #tweet {
   position: relative;
   text-align: center;
-  background: url(../images/header.jpg) no-repeat center center;
+  /* background: url(../images/header.jpg) no-repeat center center; */
   background-attachment: fixed;
   background-size: cover;
 }
