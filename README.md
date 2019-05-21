@@ -1,4 +1,4 @@
-# Archived repository
+# Archived repository [![Known Vulnerabilities](https://snyk.io/test/github/MechanicalRock/gcp-demo/badge.svg)](https://snyk.io/test/github/MechanicalRock/gcp-demo) 
 
 Please note, this repository has been archived and is for reference purposes only.
 Project dependencies may contain known security vulnerabilities.
